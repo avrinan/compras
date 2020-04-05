@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+<style>
+    body {
+        font-family: Arial
+    }
+th, td {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #2E7BD2;
+    color: white;
+}
+</style>
+</head>
+    <body>
+        <p>
+            {{ saludo }} {{ usuario }},<br/>
+            A continuacion le presentamos un extracto de las novedades del portal de compras del estado. <br/>
+            <br/>
+            P.D.: Tranquilo Mati, soy yo haciendo pruebas!
+            <br/>
+            <br/>
+            <div id="dnovedades">
+                <table id="tcompras">
+                    <th>Id Compra</th>
+                    <th>Pliego</th>
+                    <th>Inciso</th>
+                    <th>Unidad Ejecutora</th>
+                    <th>Fecha Publicacion</th>
+                    <th>Fecha Ultima Modificacion</th>
+                    <th>Fecha Apertura</th>
+
+                    
+                    {% for i in compras.index %}
+                    <tr>
+                        <td>{{ compras['@id_compra'][i] }}</td>
+                        <td>{{ compras['@nombre_pliego'][i] }}</td>
+                        <td>{{ compras['@id_inciso'][i] }}</td>
+                        <td>{{ compras['@id_ue'][i] }}</td>
+                        <td>{{ compras['@fecha_publicacion'][i] }}</td>
+                        <td>{{ compras['@fecha_ult_mod_llamado'][i] }}</td>
+                        <td>{{ compras['@fecha_hora_apertura'][i] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </p>
+    </body>
+</html>
